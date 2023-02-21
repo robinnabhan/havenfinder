@@ -29,8 +29,8 @@ final goRouterProvider = Provider<GoRouter>((ref) {
         path: '/login',
         name: 'login',
         builder: (context, state) => SigninViewModel(
-          key: state.pageKey,
-        ),
+            // key: state.pageKey,
+            ),
       ),
       // GoRoute(
       //   path: '/signup',

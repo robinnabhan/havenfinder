@@ -34,7 +34,7 @@ class PrimaryTextFormField extends FormField<String> {
     this.focusNode,
     required this.keyboard,
     required this.textInputAction,
-    this.controller,
+    required this.controller,
     required this.inputFormatter,
     required this.margin,
     this.multiLine = false,

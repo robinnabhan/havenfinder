@@ -40,6 +40,8 @@ dependencies:
   vrouter: ^1.2.1
   json_annotation: ^4.8.0
   form_field_validator: ^1.1.0
+  realm: ^1.0.1
+  provider: ^6.0.5
 
 dev_dependencies:
   flutter_test:
@@ -72,6 +74,7 @@ flutter:
     # Add assets from the images directory to the application.
     - assets/images/
     - assets/icons/
+    - assets/config/realm.json
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

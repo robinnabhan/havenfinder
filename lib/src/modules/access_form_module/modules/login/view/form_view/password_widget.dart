@@ -3,16 +3,17 @@ import 'package:form_field_validator/form_field_validator.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:havenfinder/src/core/components/widget/primary_text_form_field.dart';
 import 'package:havenfinder/src/core/theme/constants.dart';
+import 'package:havenfinder/src/modules/access_form_module/modules/login/controller/login_controller.dart';
 
 class PasswordFormView extends ConsumerStatefulWidget {
   const PasswordFormView({
     Key? key,
-    //required this.controller,
+    required this.controller,
     required this.width,
     required this.height,
   }) : super(key: key);
 
-  //final LoginController controller;
+  final LoginController controller;
   final double height;
   final double width;
 
@@ -45,7 +46,7 @@ class PasswordFormViewState extends ConsumerState<PasswordFormView> {
                 context: context,
                 hintText: 'Passsword',
                 labelText: 'Password',
-                // controller: widget.controller.loginPasswordController,
+                controller: widget.controller.loginPasswordController,
                 //focusNode: widget.controller.loginPasswordNode,
                 width: widget.width,
                 height: widget.height,
@@ -54,7 +55,7 @@ class PasswordFormViewState extends ConsumerState<PasswordFormView> {
                 formValidator: RequiredValidator(errorText: 'red'),
                 //obscure: loginObscure,
                 onSubmitted: (val) {
-                  // widget.controller.loginPasswordNode.unfocus();
+                  widget.controller.loginPasswordNode.unfocus();
                 },
                 textInputAction: TextInputAction.done,
                 suffix: true,
