@@ -5,23 +5,38 @@ import 'package:flutter/services.dart';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:havenfinder/src/core/theme/constants.dart';
+import 'package:havenfinder/src/modules/home_module/interactor/search_state.dart';
 import 'package:havenfinder/src/modules/main_module/router/main_router.dart';
 
-import 'package:havenfinder/src/modules/main_module/view/onboarding_page.dart';
-import 'package:go_router/go_router.dart';
-import 'package:havenfinder/src/modules/profile_module/view/profile_view_module.dart';
 import 'package:havenfinder/src/realm/app_services.dart';
 import 'package:havenfinder/src/realm/realm_services.dart';
+
 import 'package:provider/provider.dart' as provider;
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   final realmConfig =
       json.decode(await rootBundle.loadString('assets/config/realm.json'));
   String appId = realmConfig['appId'];
   Uri baseUrl = Uri.parse(realmConfig['baseUrl']);
+  // final FirebaseStorage storage = FirebaseStorage.instance;
+//  final realmProvider = FutureProvider((ref) async {
+//   final realmConfig = json.decode(await rootBundle.loadString('assets/config/realm.json'));
+//   final appId = realmConfig['appId'];
+//   final baseUrl = Uri.parse(realmConfig['baseUrl']);
 
-  // runApp(const ProviderScope(child: App()));
+//   final appServices = AppServices(appId, baseUrl);
+//   // You can initialize any additional properties of appServices here if needed
+
+//   return appServices;
+// });
+
+  // return runApp(const ProviderScope(child: App()));
   return runApp(
     ProviderScope(
         child: provider.MultiProvider(providers: [

@@ -2,12 +2,15 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 import 'package:havenfinder/src/core/components/responsive/responsive_layout_builder.dart';
-
+import 'package:provider/provider.dart' as provider;
 import 'package:havenfinder/src/core/components/widget/menu_list_button.dart';
 import 'package:havenfinder/src/core/theme/constants.dart';
 import 'package:havenfinder/src/modules/app_module/presenter/providers/app_provider.dart';
 import 'package:havenfinder/src/modules/app_module/presenter/view_model/app_view_model.dart';
+import 'package:havenfinder/src/realm/app_services.dart';
+
 // import 'package:havenfinder/src/modules/user_module/user_navigator_module/presenter/view_model/user_navigator_viewmodel.dart';
 // import 'package:vrouter/vrouter.dart';
 
@@ -27,6 +30,7 @@ class ProfileViewState extends ConsumerState<ProfileView>
   Widget build(
     BuildContext context,
   ) {
+    final app = provider.Provider.of<AppServices>(context);
     super.build(context);
 
     return ResponsiveLayoutBuilder(
@@ -231,7 +235,10 @@ class ProfileViewState extends ConsumerState<ProfileView>
                 ),
                 child: MenuListButton(
                   text: 'Log out',
-                  onPressed: () => {},
+                  onPressed: () async {
+                    await app.logOut();
+                    context.go('/');
+                  },
                   // appViewModel.logoutUser(
                   //   context: context,
                   //   ref: ref,

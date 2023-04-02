@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1079187906983",
+    "project_id": "havenfinder-76fac",
+    "storage_bucket": "havenfinder-76fac.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1079187906983:android:811a8e299ec2d873205682",
+        "android_client_info": {
+          "package_name": "com.example.havenfinder"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1079187906983-dhu2p2bepct3an1t2v3aaulnlo6pcs05.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAgZgWljjNxiR3YPtsOMeQ1E-TiYCMTJkU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1079187906983-dhu2p2bepct3an1t2v3aaulnlo6pcs05.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -75,3 +75,38 @@ class AppServices with ChangeNotifier {
     currentUser = null;
   }
 }
+
+
+
+// import 'package:flutter/material.dart';
+// import 'package:realm/realm.dart';
+// import 'package:riverpod/riverpod.dart';
+
+
+// class AppServices {
+//   User? _currentUser;
+//   final App _app;
+
+//   AppServices(this._app);
+
+//   User? get currentUser => _currentUser;
+
+//   Future<User> logInUserEmailPassword(String email, String password) async {
+//     User loggedInUser = await _app.logIn(Credentials.emailPassword(email, password));
+//     _currentUser = loggedInUser;
+//     return loggedInUser;
+//   }
+
+//   Future<User> registerUserEmailPassword(String email, String password) async {
+//     EmailPasswordAuthProvider authProvider = EmailPasswordAuthProvider(_app);
+//     await authProvider.registerUser(email, password);
+//     User loggedInUser = await _app.logIn(Credentials.emailPassword(email, password));
+//     _currentUser = loggedInUser;
+//     return loggedInUser;
+//   }
+
+//   Future<void> logOut() async {
+//     await _currentUser?.logOut();
+//     _currentUser = null;
+//   }
+// }

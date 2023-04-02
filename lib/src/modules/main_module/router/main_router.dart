@@ -10,6 +10,7 @@ import 'package:havenfinder/src/modules/main_module/presenter/provider/dashboard
 import 'package:havenfinder/src/modules/main_module/view/dashboard_screen.dart';
 
 import 'package:havenfinder/src/modules/profile_module/view/profile_view_module.dart';
+import 'package:havenfinder/src/modules/upload_module/view/upload_view_model.dart';
 
 final GlobalKey<NavigatorState> _rootNavigatorKey =
     GlobalKey(debugLabel: 'root');
@@ -20,7 +21,7 @@ final goRouterProvider = Provider<GoRouter>((ref) {
   final notifier = ref.read(goRouterNotifierProvider);
 
   return GoRouter(
-    initialLocation: '/',
+    initialLocation: '/login',
     navigatorKey: _rootNavigatorKey,
     refreshListenable: notifier,
     // redirect: (context, state) => '/',
@@ -76,11 +77,14 @@ final goRouterProvider = Provider<GoRouter>((ref) {
             path: '/upload',
             //parentNavigatorKey: _shellNavigatorKey,
             pageBuilder: (context, state) {
-              return const NoTransitionPage(
-                child: Scaffold(
-                  body: Center(child: Text("Upload")),
-                ),
-              );
+              return NoTransitionPage(
+                  child:
+                      // Scaffold(
+                      //   body: Center(child: Text("Upload")),
+                      // ),
+                      PropertyUploadPage(
+                          // key: state.pageKey,
+                          ));
             },
           ),
           GoRoute(

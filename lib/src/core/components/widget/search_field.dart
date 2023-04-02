@@ -9,7 +9,7 @@ class SearchField extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return TextField(
-      // focusNode: focusNode,
+      focusNode: focusNode,
       cursorColor: Theme.of(context).primaryColor,
       style: Theme.of(context).textTheme.bodyMedium,
       decoration: InputDecoration(

@@ -5,24 +5,17 @@
     "service_name": "mongodb-atlas",
     "database_name": "todo",
     "permissions": {
-        "rules": {
-            "Item": [
-                {
-                    "name": "write-own-items",
-                    "applyWhen": {},
-                    "read": true,
-                    "write": {
-                        "owner_id": "%%user.id"
-                    }
-                }
-            ]
-        },
+        "rules": {},
         "defaultRoles": [
             {
-                "name": "read-not-write",
+                "name": "owner-read-write",
                 "applyWhen": {},
-                "read": true,
-                "write": false
+                "read": {
+                    "owner_id": "%%user.id"
+                },
+                "write": {
+                    "owner_id": "%%user.id"
+                }
             }
         ]
     },
