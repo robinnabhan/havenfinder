@@ -5,6 +5,7 @@ import 'package:havenfinder/src/core/components/responsive/responsive_layout_bui
 import 'package:havenfinder/src/modules/access_form_module/modules/login/view/form_view/password_widget.dart';
 import 'package:havenfinder/src/modules/access_form_module/modules/login/view/login_view_model.dart';
 import 'package:havenfinder/src/modules/app_module/screen/error/route_error_screen.dart';
+import 'package:havenfinder/src/modules/favorite/view/favorite_view.dart';
 import 'package:havenfinder/src/modules/home_module/view/home_view_model.dart';
 import 'package:havenfinder/src/modules/main_module/presenter/provider/dashboard_provider.dart';
 import 'package:havenfinder/src/modules/main_module/view/dashboard_screen.dart';
@@ -91,9 +92,15 @@ final goRouterProvider = Provider<GoRouter>((ref) {
               //parentNavigatorKey: _shellNavigatorKey,
               path: '/favorite',
               pageBuilder: (context, state) {
-                return const NoTransitionPage(
+                return NoTransitionPage(
                   child: Scaffold(
-                    body: Center(child: Text("Favorite")),
+                    body: Center(
+                        child: FavoritePage(
+                      key: state.pageKey,
+                      title: "Hello",
+                    )
+                        //Text("Favorite")
+                        ),
                   ),
                 );
               }),

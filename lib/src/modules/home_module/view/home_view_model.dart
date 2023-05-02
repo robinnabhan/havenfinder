@@ -21,6 +21,7 @@ class HomeView extends StatefulWidget {
 
 class _HomeViewState extends State<HomeView> {
   final searchController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     final realmServices = Provider.of<RealmServices>(context);
@@ -47,8 +48,14 @@ class _HomeViewState extends State<HomeView> {
                           Align(
                             alignment: Alignment.centerLeft,
                             child: Column(
-                              children: const [
-                                Text("Location ˯"),
+                              children: [
+                                Row(
+                                  children: [
+                                    Text("Location ˯"),
+                                    Text(
+                                        "Welcome ${realmServices.currentUser.profile.email.toString()}")
+                                  ],
+                                ),
                                 Text("📍 Beirut,Lebanon"),
                               ],
                             ),
@@ -109,9 +116,41 @@ class _HomeViewState extends State<HomeView> {
                   //   },
                   // ),
 
+                  // Expanded(
+                  //   child: StreamBuilder<RealmResultsChanges<Property>>(
+                  //     stream: realmServices.realm.all<Property>().changes,
+                  //     builder: (context, snapshot) {
+                  //       final data = snapshot.data;
+
+                  //       if (data == null) return waitingIndicator();
+
+                  //       final results = data.results;
+                  //       return ListView.builder(
+                  //         shrinkWrap: true,
+                  //         itemCount:
+                  //             results.realm.isClosed ? 0 : results.length,
+                  //         itemBuilder: (context, index) =>
+                  //             results[index].isValid
+                  //                 ? PropertyCard(
+                  //                     ownerId: results[index].ownerId,
+                  //                     title: results[index].title,
+                  //                     price: results[index].price,
+                  //                     location: results[index].location,
+                  //                     availability: results[index].availability,
+                  //                     description: results[index].description,
+                  //                     type: results[index].type,
+                  //                     images: results[index].images,
+                  //                     phoneNumber: results[index].phone_number,
+                  //                   )
+                  //                 : Container(),
+                  //       );
+                  //     },
+                  //   ),
+                  // ),
                   Expanded(
                     child: StreamBuilder<RealmResultsChanges<Property>>(
-                      stream: realmServices.realm.all<Property>().changes,
+                      stream:
+                          realmServices.filterProperties(searchController.text),
                       builder: (context, snapshot) {
                         final data = snapshot.data;
 

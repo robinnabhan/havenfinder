@@ -242,11 +242,18 @@ class RealmServices with ChangeNotifier {
     if (query.isEmpty) {
       return realm.all<Property>().changes;
     }
+    print(realm.all<Property>());
     print(Property.schema.properties);
-    final filteredProperties = realm.all<Property>().query(
-          'title CONTAINS[c] $query OR description CONTAINS[c] $query',
-        );
 
+    final filteredProperties = realm.all<Property>().query(
+          'title CONTAINS[c] "$query" OR description CONTAINS[c] "$query"',
+          //'title == $query OR description CONTAINS[c] $query',
+        );
+    print("-----------------------------------------------");
+    print(filteredProperties);
+    print(filteredProperties.changes.toString());
+    print(filteredProperties.changes.toList());
+    print('------------------------------------------------');
     return filteredProperties.changes;
   }
 
